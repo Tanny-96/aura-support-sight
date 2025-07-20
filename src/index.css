@@ -2,64 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark sentiment dashboard design system with vibrant neon accents */
+/* Futuristic sentiment dashboard design system with vibrant neon aesthetics */
 
 @layer base {
   :root {
-    /* Dark theme base colors */
-    --background: 220 13% 9%;
-    --foreground: 210 20% 98%;
+    /* Deep space dark theme */
+    --background: 224 15% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 220 13% 12%;
-    --card-foreground: 210 20% 98%;
+    --card: 224 15% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 220 13% 12%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 224 15% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 142 76% 36%;  /* Neon green */
-    --primary-foreground: 220 13% 9%;
+    --primary: 142 86% 45%;  /* Enhanced neon green */
+    --primary-foreground: 224 15% 6%;
 
-    --secondary: 220 13% 18%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 224 15% 12%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 13% 15%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 224 15% 10%;
+    --muted-foreground: 215 25% 70%;
 
-    --accent: 217 91% 60%;  /* Neon blue */
-    --accent-foreground: 220 13% 9%;
+    --accent: 217 91% 65%;  /* Enhanced neon blue */
+    --accent-foreground: 224 15% 6%;
 
-    --destructive: 0 84% 60%;  /* Neon red */
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0 91% 65%;  /* Enhanced neon red */
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 18%;
-    --input: 220 13% 18%;
-    --ring: 142 76% 36%;
+    --border: 224 15% 14%;
+    --input: 224 15% 12%;
+    --ring: 142 86% 45%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    /* Custom sentiment dashboard colors */
-    --neon-green: 142 76% 36%;
-    --neon-green-glow: 142 76% 50%;
-    --neon-red: 0 84% 60%;
-    --neon-red-glow: 0 84% 70%;
-    --neon-blue: 217 91% 60%;
-    --neon-blue-glow: 217 91% 70%;
-    --neon-purple: 271 81% 56%;
-    --neon-yellow: 54 91% 60%;
+    /* Enhanced neon color palette */
+    --neon-green: 142 86% 45%;
+    --neon-green-bright: 142 100% 55%;
+    --neon-green-glow: 142 86% 60%;
+    --neon-red: 0 91% 65%;
+    --neon-red-bright: 0 100% 70%;
+    --neon-red-glow: 0 91% 75%;
+    --neon-blue: 217 91% 65%;
+    --neon-blue-bright: 217 100% 70%;
+    --neon-blue-glow: 217 91% 75%;
+    --neon-purple: 271 91% 65%;
+    --neon-purple-bright: 271 100% 70%;
+    --neon-cyan: 180 100% 65%;
+    --neon-pink: 320 91% 65%;
+    --neon-yellow: 54 100% 65%;
 
-    /* Gradients */
-    --gradient-sentiment: linear-gradient(135deg, hsl(var(--neon-green)), hsl(var(--neon-blue)));
+    /* Advanced gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--neon-green)), hsl(var(--neon-blue)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-purple)));
+    --gradient-rainbow: linear-gradient(90deg, hsl(var(--neon-red)), hsl(var(--neon-yellow)), hsl(var(--neon-green)), hsl(var(--neon-cyan)), hsl(var(--neon-blue)), hsl(var(--neon-purple)));
+    --gradient-aurora: linear-gradient(135deg, hsl(var(--neon-green) / 0.8), hsl(var(--neon-blue) / 0.6), hsl(var(--neon-purple) / 0.4));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(224 15% 10%));
+    --gradient-glass: linear-gradient(135deg, hsl(var(--card) / 0.8), hsl(224 15% 12% / 0.6));
     --gradient-alert: linear-gradient(135deg, hsl(var(--neon-red)), hsl(var(--neon-red-glow)));
-    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(220 13% 14%));
 
-    /* Shadows and glows */
-    --glow-green: 0 0 20px hsl(var(--neon-green) / 0.5);
-    --glow-red: 0 0 20px hsl(var(--neon-red) / 0.5);
-    --glow-blue: 0 0 20px hsl(var(--neon-blue) / 0.5);
+    /* Enhanced shadows and glows */
+    --glow-green: 0 0 30px hsl(var(--neon-green) / 0.6), 0 0 60px hsl(var(--neon-green) / 0.3);
+    --glow-red: 0 0 30px hsl(var(--neon-red) / 0.6), 0 0 60px hsl(var(--neon-red) / 0.3);
+    --glow-blue: 0 0 30px hsl(var(--neon-blue) / 0.6), 0 0 60px hsl(var(--neon-blue) / 0.3);
+    --glow-purple: 0 0 30px hsl(var(--neon-purple) / 0.6), 0 0 60px hsl(var(--neon-purple) / 0.3);
+    --glow-rainbow: 0 0 40px hsl(var(--neon-green) / 0.4), 0 0 80px hsl(var(--neon-blue) / 0.3), 0 0 120px hsl(var(--neon-purple) / 0.2);
     
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Glass morphism */
+    --glass-bg: hsl(var(--card) / 0.7);
+    --glass-border: hsl(var(--border) / 0.3);
+    --glass-backdrop: blur(20px) saturate(180%);
+    
+    /* Advanced animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-glow: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -128,52 +147,174 @@
 }
 
 @layer components {
-  /* Sentiment Dashboard Custom Components */
+  /* Futuristic sentiment dashboard components */
   .sentiment-card {
-    @apply bg-card border border-border rounded-lg p-6 backdrop-blur-sm;
-    background: var(--gradient-card);
+    @apply rounded-xl p-6 border border-border/50 relative overflow-hidden;
+    background: var(--gradient-glass);
+    backdrop-filter: var(--glass-backdrop);
     transition: var(--transition-smooth);
   }
   
+  .sentiment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-primary);
+    opacity: 0.8;
+  }
+  
   .sentiment-card:hover {
-    @apply shadow-lg transform scale-105;
+    @apply transform scale-[1.02];
     box-shadow: var(--glow-blue);
+    border-color: hsl(var(--neon-blue) / 0.5);
+  }
+  
+  .glass-card {
+    @apply rounded-xl border border-border/30 relative overflow-hidden;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    transition: var(--transition-elastic);
+  }
+  
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    opacity: 0.3;
+  }
+  
+  .glass-card:hover {
+    @apply transform scale-[1.01];
+    box-shadow: var(--glow-rainbow);
   }
   
   .neon-glow-green {
     box-shadow: var(--glow-green);
+    border-color: hsl(var(--neon-green) / 0.5);
   }
   
   .neon-glow-red {
     box-shadow: var(--glow-red);
+    border-color: hsl(var(--neon-red) / 0.5);
   }
   
   .neon-glow-blue {
     box-shadow: var(--glow-blue);
+    border-color: hsl(var(--neon-blue) / 0.5);
+  }
+  
+  .neon-glow-purple {
+    box-shadow: var(--glow-purple);
+    border-color: hsl(var(--neon-purple) / 0.5);
   }
   
   .pulse-alert {
-    animation: pulse-glow 1.5s ease-in-out infinite;
+    animation: pulse-glow 2s ease-in-out infinite, float 4s ease-in-out infinite;
+  }
+  
+  .aurora-border {
+    position: relative;
+    border-radius: 0.875rem;
+  }
+  
+  .aurora-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-aurora);
+    border-radius: inherit;
+    z-index: -1;
+    animation: aurora-flow 6s ease-in-out infinite;
   }
   
   .drag-zone {
-    @apply border-2 border-dashed border-muted-foreground/50 rounded-lg p-8 text-center;
+    @apply border-2 border-dashed border-muted-foreground/30 rounded-xl p-8 text-center relative overflow-hidden;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    transition: var(--transition-bounce);
+  }
+  
+  .drag-zone::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-aurora);
+    opacity: 0;
     transition: var(--transition-smooth);
+  }
+  
+  .drag-zone:hover::before,
+  .drag-zone.drag-over::before {
+    opacity: 0.1;
   }
   
   .drag-zone:hover,
   .drag-zone.drag-over {
-    @apply border-primary;
+    @apply border-primary transform scale-[1.02];
     box-shadow: var(--glow-green);
+    border-style: solid;
   }
   
   .chart-container {
-    @apply bg-card/50 border border-border rounded-lg p-4 backdrop-blur-sm;
+    @apply rounded-xl p-6 border border-border/30 relative overflow-hidden;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+  }
+  
+  .chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-secondary);
+    opacity: 0.6;
   }
   
   .agent-recommendation {
-    @apply bg-gradient-to-r from-card to-secondary border border-border rounded-lg p-4;
-    box-shadow: 0 4px 20px hsl(var(--neon-blue) / 0.2);
+    @apply rounded-xl p-6 border border-border/30 relative overflow-hidden;
+    background: var(--gradient-glass);
+    backdrop-filter: var(--glass-backdrop);
+    box-shadow: var(--glow-blue);
+    transition: var(--transition-elastic);
+  }
+  
+  .agent-recommendation::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-secondary);
+    opacity: 0.05;
+    border-radius: inherit;
+  }
+  
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.1), transparent);
+    animation: shimmer 3s ease-in-out infinite;
   }
 }
 
@@ -223,25 +364,119 @@
   }
 }
 
-/* Custom animations */
+/* Advanced futuristic animations */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--neon-red) / 0.3);
+    box-shadow: 0 0 30px hsl(var(--neon-red) / 0.4), 0 0 60px hsl(var(--neon-red) / 0.2);
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 40px hsl(var(--neon-red) / 0.8);
+    box-shadow: 0 0 50px hsl(var(--neon-red) / 0.8), 0 0 100px hsl(var(--neon-red) / 0.4);
+    transform: scale(1.02);
   }
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
   }
-  50% {
-    transform: translateY(-10px);
+  33% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-4px) rotate(-1deg);
   }
 }
 
+@keyframes aurora-flow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    opacity: 0.8;
+    transform: rotate(1deg) scale(1.02);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1.05);
+  }
+  75% {
+    opacity: 0.8;
+    transform: rotate(-1deg) scale(1.02);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 15px currentColor, 0 0 30px currentColor, 0 0 45px currentColor;
+  }
+}
+
+@keyframes data-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes hologram-flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  2% {
+    opacity: 0.8;
+  }
+  4% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.9;
+  }
+  98% {
+    opacity: 1;
+  }
+}
+
+/* Utility animation classes */
 .float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
+}
+
+.aurora-flow {
+  animation: aurora-flow 8s ease-in-out infinite;
+}
+
+.neon-text {
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+.data-flow {
+  background: var(--gradient-rainbow);
+  background-size: 400% 400%;
+  animation: data-flow 4s ease-in-out infinite;
+}
+
+.hologram {
+  animation: hologram-flicker 8s ease-in-out infinite;
 }

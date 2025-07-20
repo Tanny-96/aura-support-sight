@@ -124,7 +124,17 @@ export function SentimentDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 space-y-6">
+    <div className="min-h-screen bg-background p-4 space-y-6 relative overflow-hidden">
+      {/* Background ambient elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full opacity-20 aurora-flow" 
+             style={{ background: 'var(--gradient-aurora)' }}></div>
+        <div className="absolute bottom-40 right-32 w-48 h-48 rounded-full opacity-15 float"
+             style={{ background: 'var(--gradient-secondary)' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-32 h-32 rounded-full opacity-10 floating-element"
+             style={{ background: 'var(--gradient-primary)' }}></div>
+      </div>
+
       {/* Alert Banner */}
       <AlertBanner
         isActive={alertActive}
@@ -134,13 +144,24 @@ export function SentimentDashboard() {
       />
 
       {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-neon-green to-neon-blue bg-clip-text text-transparent mb-2">
-          Sentiment Analysis Dashboard
+      <div className="text-center mb-8 relative z-10">
+        <h1 className="text-5xl font-bold mb-2 neon-text" 
+            style={{ 
+              background: 'var(--gradient-rainbow)', 
+              backgroundClip: 'text', 
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+              backgroundSize: '400% 400%'
+            }}>
+          <span className="data-flow bg-clip-text text-transparent">
+            Sentiment Analysis Dashboard
+          </span>
         </h1>
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground text-lg opacity-80 shimmer">
           Real-time support ticket sentiment monitoring and analysis
         </p>
+        <div className="mx-auto w-24 h-1 mt-4 rounded-full" 
+             style={{ background: 'var(--gradient-primary)' }}></div>
       </div>
 
       {/* Main Grid */}
