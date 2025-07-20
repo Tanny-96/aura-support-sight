@@ -94,12 +94,20 @@ export function SentimentDashboard() {
   const [alertActive, setAlertActive] = useState(false);
   const [chartType, setChartType] = useState<'line' | 'bar'>('line');
   const [isChatCollapsed, setIsChatCollapsed] = useState(true);
+  const [affectedTickets, setAffectedTickets] = useState(0);
 
-  // Simulate negative sentiment spike detection
+  // Check for angry/confused emotions spike
   useEffect(() => {
     const timer = setTimeout(() => {
-      const negativePercent = (mockChartData[mockChartData.length - 1].negative / mockChartData[mockChartData.length - 1].total) * 100;
-      if (negativePercent > 50) {
+      const angryConfusedTickets = mockTickets.filter(ticket => 
+        ticket.emotion === 'angry' || ticket.emotion === 'frustrated'
+      );
+      const affectedCount = angryConfusedTickets.length;
+      const percentage = (affectedCount / mockTickets.length) * 100;
+      
+      setAffectedTickets(affectedCount);
+      
+      if (percentage > 60) {
         setAlertActive(true);
       }
     }, 2000);
@@ -139,7 +147,10 @@ export function SentimentDashboard() {
       <AlertBanner
         isActive={alertActive}
         severity="high"
-        message="High volume of negative sentiment detected in recent tickets. Consider immediate action."
+        message="⚠️ Spike in Negative Sentiment Detected!"
+        affectedTickets={affectedTickets}
+        totalTickets={mockTickets.length}
+        playSound={true}
         onDismiss={() => setAlertActive(false)}
       />
 
