@@ -22,11 +22,11 @@ interface SearchFilterProps {
 export function SearchFilter({ onSearch, onFilter }: SearchFilterProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<FilterOptions>({
-    sentiment: '',
-    emotion: '',
-    priority: '',
-    status: '',
-    dateRange: ''
+    sentiment: 'all',
+    emotion: 'all',
+    priority: 'all',
+    status: 'all',
+    dateRange: 'all'
   });
 
   const handleSearchChange = (value: string) => {
@@ -41,22 +41,22 @@ export function SearchFilter({ onSearch, onFilter }: SearchFilterProps) {
   };
 
   const clearFilter = (key: keyof FilterOptions) => {
-    handleFilterChange(key, '');
+    handleFilterChange(key, 'all');
   };
 
   const clearAllFilters = () => {
-    const emptyFilters: FilterOptions = {
-      sentiment: '',
-      emotion: '',
-      priority: '',
-      status: '',
-      dateRange: ''
+    const defaultFilters: FilterOptions = {
+      sentiment: 'all',
+      emotion: 'all',
+      priority: 'all',
+      status: 'all',
+      dateRange: 'all'
     };
-    setActiveFilters(emptyFilters);
-    onFilter?.(emptyFilters);
+    setActiveFilters(defaultFilters);
+    onFilter?.(defaultFilters);
   };
 
-  const activeFilterCount = Object.values(activeFilters).filter(Boolean).length;
+  const activeFilterCount = Object.values(activeFilters).filter(value => value && value !== 'all').length;
 
   return (
     <Card className="sentiment-card">
@@ -88,7 +88,7 @@ export function SearchFilter({ onSearch, onFilter }: SearchFilterProps) {
             <SelectValue placeholder="Sentiment" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Sentiments</SelectItem>
+            <SelectItem value="all">All Sentiments</SelectItem>
             <SelectItem value="positive">Positive</SelectItem>
             <SelectItem value="neutral">Neutral</SelectItem>
             <SelectItem value="negative">Negative</SelectItem>
@@ -100,7 +100,7 @@ export function SearchFilter({ onSearch, onFilter }: SearchFilterProps) {
             <SelectValue placeholder="Emotion" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Emotions</SelectItem>
+            <SelectItem value="all">All Emotions</SelectItem>
             <SelectItem value="angry">😡 Angry</SelectItem>
             <SelectItem value="sad">😢 Sad</SelectItem>
             <SelectItem value="neutral">😐 Neutral</SelectItem>
@@ -115,7 +115,7 @@ export function SearchFilter({ onSearch, onFilter }: SearchFilterProps) {
             <SelectValue placeholder="Priority" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Priorities</SelectItem>
+            <SelectItem value="all">All Priorities</SelectItem>
             <SelectItem value="high">High</SelectItem>
             <SelectItem value="medium">Medium</SelectItem>
             <SelectItem value="low">Low</SelectItem>
@@ -127,7 +127,7 @@ export function SearchFilter({ onSearch, onFilter }: SearchFilterProps) {
             <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Statuses</SelectItem>
+            <SelectItem value="all">All Statuses</SelectItem>
             <SelectItem value="new">New</SelectItem>
             <SelectItem value="assigned">Assigned</SelectItem>
             <SelectItem value="in-progress">In Progress</SelectItem>
@@ -140,7 +140,7 @@ export function SearchFilter({ onSearch, onFilter }: SearchFilterProps) {
             <SelectValue placeholder="Time Range" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">All Time</SelectItem>
+            <SelectItem value="all">All Time</SelectItem>
             <SelectItem value="today">Today</SelectItem>
             <SelectItem value="week">This Week</SelectItem>
             <SelectItem value="month">This Month</SelectItem>
@@ -152,7 +152,7 @@ export function SearchFilter({ onSearch, onFilter }: SearchFilterProps) {
       {activeFilterCount > 0 && (
         <div className="flex flex-wrap gap-2 mb-4">
           {Object.entries(activeFilters).map(([key, value]) => 
-            value && (
+            value && value !== 'all' && (
               <Badge key={key} variant="secondary" className="flex items-center gap-1">
                 {key}: {value}
                 <button
